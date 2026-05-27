@@ -72,7 +72,7 @@ export function OpenSourceSection() {
   return (
     <section className="py-16 lg:py-24 px-6 lg:px-12 text-left rounded-2xl max-w-7xl mx-auto">
       <motion.div
-        className="border border-border rounded-2xl py-12 px-12 bg-card"
+        className="border border-border rounded-2xl py-12 px-6 lg:px-12 bg-card"
         initial="hidden"
         animate="visible"
         variants={{
@@ -85,7 +85,7 @@ export function OpenSourceSection() {
           },
         }}
       >
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col lg:flex-row justify-between items-center">
           <motion.div
             variants={{
               hidden: {},
@@ -142,7 +142,7 @@ export function OpenSourceSection() {
               ))}
             </motion.div>
           </motion.div>
-          <motion.div variants={fadeUp} transition={sectionTransition}>
+          <motion.div variants={fadeUp} transition={sectionTransition} className="mt-8 lg:mt-0 justify-start lg:justify-end">
             <a
               href="https://github.com/ec812/hkwarnsum"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold border border-white/12 bg-white/5 backdrop-blur-xl text-white/80 hover:brightness-125 transition-colors"
