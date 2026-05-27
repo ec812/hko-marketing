@@ -4,44 +4,70 @@ import { useState } from "react"
 import Image from "next/image"
 import { TriangleAlert } from "lucide-react"
 
+type Locale = "en" | "tc"
+
+interface LocalizedText {
+  en: string
+  tc: string
+}
+
 interface MockWarning {
-  name: string
-  actionLabel: string
-  timeAgo: string
+  id: string
+  name: LocalizedText
+  actionLabel: LocalizedText
+  timeAgo: LocalizedText
   severity: "critical" | "standard" | "advisory"
-  type?: string
-  detail?: string[]
+  type?: LocalizedText
+  detail?: { en: string[]; tc: string[] }
   colorClass: string
   icon: string
 }
 
 const warnings: MockWarning[] = [
   {
-    name: "Tropical Cyclone Warning Signal",
-    actionLabel: "Issue",
-    timeAgo: "10 min ago",
+    id: "tc",
+    name: {
+      en: "Tropical Cyclone Warning Signal",
+      tc: "熱帶氣旋警告信號",
+    },
+    actionLabel: { en: "Issue", tc: "發出" },
+    timeAgo: { en: "10 min ago", tc: "10 分鐘前" },
     severity: "critical",
-    type: "T3",
+    type: { en: "T3", tc: "三號" },
     colorClass: "bg-red-500",
     icon: "/icons/tc3_dark.png",
-    detail: [
-      "The Tropical Cyclone Warning Signal No. 3 is now in force.",
-      "Strong winds are expected or blowing over Hong Kong.",
-    ],
+    detail: {
+      en: [
+        "The Tropical Cyclone Warning Signal No. 3 is now in force.",
+        "Strong winds are expected or blowing over Hong Kong.",
+      ],
+      tc: [
+        "三號強風信號現正生效。",
+        "香港正或預料會受強風或間中強烈風速吹襲。",
+      ],
+    },
   },
   {
-    name: "Rainstorm Warning Signal",
-    actionLabel: "Issue",
-    timeAgo: "25 min ago",
+    id: "rain",
+    name: {
+      en: "Rainstorm Warning Signal",
+      tc: "暴雨警告信號",
+    },
+    actionLabel: { en: "Issue", tc: "發出" },
+    timeAgo: { en: "25 min ago", tc: "25 分鐘前" },
     severity: "standard",
-    type: "Amber",
+    type: { en: "Amber", tc: "黃色" },
     colorClass: "bg-yellow-400",
     icon: "/icons/raina_dark.png",
   },
   {
-    name: "Thunderstorm Warning",
-    actionLabel: "Reissued",
-    timeAgo: "1h ago",
+    id: "ts",
+    name: {
+      en: "Thunderstorm Warning",
+      tc: "雷暴警告",
+    },
+    actionLabel: { en: "Reissued", tc: "重新發出" },
+    timeAgo: { en: "1h ago", tc: "1 小時前" },
     severity: "advisory",
     colorClass: "bg-blue-400",
     icon: "/icons/ts_dark.png",
@@ -54,7 +80,17 @@ const severityLabels = {
   advisory: { en: "Advisory", tc: "建議" },
 }
 
+const uiText = {
+  title: { en: "HK Warnings", tc: "香港警告" },
+  hideFromDock: { en: "Hide from Dock", tc: "從 Dock 隱藏" },
+}
+
+function t(text: LocalizedText, locale: Locale) {
+  return text[locale]
+}
+
 export function TatePopupPreview() {
+  const [locale, setLocale] = useState<Locale>("en")
   const [expanded, setExpanded] = useState<string | null>(null)
 
   const groups = {
@@ -83,7 +119,7 @@ export function TatePopupPreview() {
         <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/10">
           <div className="flex items-center gap-2">
             <TriangleAlert className="w-4 h-4 text-yellow-500" />
-            <h1 className="text-sm font-bold">HK Warnings</h1>
+            <h1 className="text-sm font-bold">{t(uiText.title, locale)}</h1>
           </div>
         </div>
 
@@ -94,16 +130,16 @@ export function TatePopupPreview() {
             return (
               <section key={severity}>
                 <h2 className="text-[10px] uppercase tracking-widest text-white/40 mb-1.5 px-0.5">
-                  {severityLabels[severity].en}
+                  {severityLabels[severity][locale]}
                 </h2>
                 <div className="space-y-1.5">
                   {items.map((w) => {
-                    const isExpanded = expanded === w.name
+                    const isExpanded = expanded === w.id
                     return (
                       <div
-                        key={w.name}
+                        key={w.id}
                         className="rounded-lg overflow-hidden border border-white/10 cursor-pointer hover:border-white/25 transition-colors"
-                        onClick={() => setExpanded(isExpanded ? null : w.name)}
+                        onClick={() => setExpanded(isExpanded ? null : w.id)}
                       >
                         <div className={`h-1 ${w.colorClass}`} />
                         <div className="p-3">
@@ -111,32 +147,34 @@ export function TatePopupPreview() {
                             <div className="flex items-center gap-2.5 flex-1 min-w-0">
                               <Image
                                 src={w.icon}
-                                alt={w.name}
+                                alt={t(w.name, locale)}
                                 width={24}
                                 height={24}
                                 className="w-6 h-6 shrink-0 object-contain"
                               />
                               <div className="min-w-0">
                                 <h3 className="text-sm font-semibold text-white truncate">
-                                  {w.name}
+                                  {t(w.name, locale)}
                                 </h3>
                                 {w.type && (
                                   <span className="inline-block mt-0.5 text-xs font-medium px-1.5 py-0.5 rounded bg-white/10 text-white/80">
-                                    {w.type}
+                                    {t(w.type, locale)}
                                   </span>
                                 )}
                               </div>
                             </div>
                             <div className="flex flex-col items-end gap-0.5 shrink-0">
                               <span className="text-[10px] border border-white/10 rounded-full px-2 py-0.5 uppercase tracking-wider text-white/50">
-                                {w.actionLabel}
+                                {t(w.actionLabel, locale)}
                               </span>
-                              <span className="text-[10px] text-white/40">{w.timeAgo}</span>
+                              <span className="text-[10px] text-white/40">
+                                {t(w.timeAgo, locale)}
+                              </span>
                             </div>
                           </div>
-                          {isExpanded && w.detail && w.detail.length > 0 && (
+                          {isExpanded && w.detail && w.detail[locale].length > 0 && (
                             <div className="mt-2 pt-2 border-t border-white/10 space-y-1">
-                              {w.detail.slice(0, 3).map((para, i) => (
+                              {w.detail[locale].slice(0, 3).map((para, i) => (
                                 <p key={i} className="text-xs text-white/60 leading-relaxed">
                                   {para}
                                 </p>
@@ -160,11 +198,18 @@ export function TatePopupPreview() {
               defaultChecked
               className="rounded border-white/30 bg-neutral-800 text-primary outline-none"
             />
-            <span className="text-[11px] text-white/50">Hide from Dock</span>
+            <span className="text-[11px] text-white/50">
+              {t(uiText.hideFromDock, locale)}
+            </span>
           </label>
-          <span className="text-[11px] font-medium px-2 py-0.5 text-white/70 cursor-pointer">
-            繁
-          </span>
+          <button
+            type="button"
+            onClick={() => setLocale((current) => (current === "en" ? "tc" : "en"))}
+            className="text-[11px] font-medium px-2 py-0.5 rounded text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+            aria-label={locale === "en" ? "Switch to Traditional Chinese" : "Switch to English"}
+          >
+            {locale === "en" ? "繁" : "EN"}
+          </button>
         </div>
       </div>
     </div>
