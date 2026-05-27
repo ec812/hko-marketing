@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <MacOSMenuBar />
-      <div className="pt-10 min-h-[420px] bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a] flex justify-end pr-16 max-md:pr-4 max-md:justify-center max-md:min-h-0 max-md:py-8">
+      <div className="min-h-[420px] bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a] flex justify-end pr-16 max-md:pr-4 max-md:justify-center max-md:min-h-0 max-md:py-8">
         <div className="hidden md:block">
           <TatePopupPreview />
         </div>

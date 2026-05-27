@@ -30,7 +30,7 @@ function MacOSClock() {
 export function MacOSMenuBar() {
   return (
     <>
-      <div className="hidden md:flex fixed top-0 left-0 right-0 z-50 h-10 items-center justify-between px-4 text-[13px] text-white/85 bg-black/30 backdrop-blur-xl border-b border-white/10">
+      <div className="hidden md:flex h-10 items-center justify-between px-4 text-[13px] text-white/85 bg-black/30 backdrop-blur-xl border-b border-white/10">
         <div className="flex items-center gap-5">
           <span className="text-[17px] leading-none"></span>
           {menuItems.map((item) => (
@@ -45,7 +45,7 @@ export function MacOSMenuBar() {
         </div>
       </div>
 
-      <div className="md:hidden fixed top-0 left-0 right-0 z-50 h-12 flex items-center justify-between px-4 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="md:hidden h-12 flex items-center justify-between px-4 bg-black/80 backdrop-blur-xl border-b border-white/10">
         <span className="font-bold text-sm text-white">Tate</span>
         <Menu className="w-5 h-5 text-white/60" />
       </div>
