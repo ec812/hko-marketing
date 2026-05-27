@@ -1,1 +1,40 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+  --color-card: #111111;
+  --color-card-foreground: #ededed;
+  --color-popover: #111111;
+  --color-popover-foreground: #ededed;
+  --color-primary: #facc15;
+  --color-primary-foreground: #000000;
+  --color-secondary: #1a1a1a;
+  --color-secondary-foreground: #ededed;
+  --color-muted: #262626;
+  --color-muted-foreground: #a1a1aa;
+  --color-accent: #facc15;
+  --color-accent-foreground: #000000;
+  --color-destructive: #7f1d1d;
+  --color-destructive-foreground: #fca5a5;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-ring: #facc15;
+  --radius: 0.625rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  --font-mono: "SF Mono", "Fira Code", monospace;
+}
+
+:root {
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
