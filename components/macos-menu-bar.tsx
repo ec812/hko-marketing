@@ -95,7 +95,7 @@ export function MacOSMenuBar() {
         </div>
       </motion.div>
 
-      <motion.div
+      {/* <motion.div
         className="font-macos md:hidden h-12 flex items-center justify-between px-4 bg-black/80 backdrop-blur-xl border-b border-white/10"
         initial={reducedMotion ? false : { opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -103,7 +103,7 @@ export function MacOSMenuBar() {
       >
         <span className="font-extrabold text-sm text-white">Tate</span>
         <Menu className="w-5 h-5 text-white/60" />
-      </motion.div>
+      </motion.div> */}
     </>
   )
 }

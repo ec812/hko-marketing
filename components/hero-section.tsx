@@ -20,7 +20,7 @@ export function HeroSection() {
 
   return (
     <section className="relative w-full px-6 lg:px-12 pt-8 lg:pt-24 pb-20 lg:pb-24">
-      <div className="max-w-7xl mx-auto px-12">
+      <div className="max-w-7xl mx-auto lg:px-12">
         <motion.div
           className="max-w-xl space-y-6"
           initial="hidden"
@@ -38,6 +38,9 @@ export function HeroSection() {
           <motion.div className="flex items-center gap-2.5" variants={fadeUp}>
             <TateIcon className="w-7 h-7" />
             <span className="text-sm font-semibold tracking-tight text-white">Tate</span>
+            <span className="text-xs font-mono px-3 py-1 rounded-full text-foreground bg-muted border border-border">
+              Free · Open Source · macOS
+            </span>
           </motion.div>
 
           <motion.h1
@@ -65,7 +68,7 @@ export function HeroSection() {
                 alt={icon.alt}
                 width={24}
                 height={24}
-                className="w-6 h-6 opacity-60"
+                className="w-6 h-6 opacity-80"
               />
             ))}
             <span className="text-xs text-white/30 font-mono">+ 20 more</span>
@@ -92,11 +95,8 @@ export function HeroSection() {
             <CopyButton
               text="brew install --cask tate"
               label="brew install --cask tate"
-              className="font-mono"
+              className="font-mono font-light text-sm"
             />
-            <span className="text-xs font-mono px-2 py-1 rounded text-white/50 bg-white/8">
-              Free · Open Source · macOS
-            </span>
           </motion.div>
         </motion.div>
       </div>
