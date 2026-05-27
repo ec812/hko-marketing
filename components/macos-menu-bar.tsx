@@ -3,7 +3,10 @@
 import { useSyncExternalStore } from "react"
 import Image from "next/image"
 import { Wifi, Battery, Volume2, Menu } from "lucide-react"
+import { motion, useReducedMotion } from "motion/react"
 import { AppleIcon } from "@/components/apple"
+
+const menuBarTransition = { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }
 
 const menuItems = ["Tate", "File", "Edit", "View", "Window", "Help"]
 
@@ -50,9 +53,16 @@ function MacOSClock() {
 }
 
 export function MacOSMenuBar() {
+  const reducedMotion = useReducedMotion()
+
   return (
     <>
-      <div className="font-macos hidden md:flex h-10 items-center justify-between px-4 text-[13px] text-white/85 bg-black/30 backdrop-blur-xl border-b border-white/10">
+      <motion.div
+        className="font-macos hidden md:flex h-10 items-center justify-between px-4 text-[13px] text-white/85 bg-black/30 backdrop-blur-xl border-b border-white/10"
+        initial={reducedMotion ? false : { opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={menuBarTransition}
+      >
         <div className="flex items-center gap-5">
           <AppleIcon className="w-4 h-4" />
           {menuItems.map((item) => (
@@ -78,12 +88,17 @@ export function MacOSMenuBar() {
 
           <MacOSClock />
         </div>
-      </div>
+      </motion.div>
 
-      <div className="font-macos md:hidden h-12 flex items-center justify-between px-4 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <motion.div
+        className="font-macos md:hidden h-12 flex items-center justify-between px-4 bg-black/80 backdrop-blur-xl border-b border-white/10"
+        initial={reducedMotion ? false : { opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={menuBarTransition}
+      >
         <span className="font-extrabold text-sm text-white">Tate</span>
         <Menu className="w-5 h-5 text-white/60" />
-      </div>
+      </motion.div>
     </>
   )
 }
