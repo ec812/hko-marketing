@@ -8,6 +8,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
   title: "Tate — Hong Kong Weather Warnings in Your Menu Bar",
+  icons: {
+    icon: "/icons/tate.svg",
+  },
   description:
     "Real-time Hong Kong weather warnings from the HKO Open Data API, right in your macOS menu bar.",
   openGraph: {
