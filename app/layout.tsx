@@ -14,11 +14,19 @@ export const metadata: Metadata = {
     icon: "/icons/tate.svg",
   },
   description:
-    "Real-time Hong Kong weather warnings from the HKO Open Data API, right in your macOS menu bar.",
+    "Open Source Real-time Hong Kong weather warnings from the HKO Open Data API, right in your macOS menu bar.",
   openGraph: {
     title: "Tate — HK Weather Warnings",
     description:
-      "Real-time Hong Kong weather warnings in your macOS menu bar.",
+      "Open Source Real-time Hong Kong weather warnings in your macOS menu bar.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Tate — HK Weather Warnings",
+      },
+    ],
   },
 }
 
