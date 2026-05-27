@@ -13,8 +13,9 @@ const warningIcons = [
 
 export function HeroSection() {
   return (
-    <section className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-8 lg:pt-12 pb-20 lg:pb-28">
-      <div className="max-w-xl space-y-6">
+    <section className="relative w-full px-6 lg:px-12 pt-8 lg:pt-12 pb-20 lg:pb-28">
+      <div className="max-w-7xl mx-auto">
+        <div className="max-w-xl space-y-6">
         <div className="flex items-center gap-2.5">
           <TateIcon className="w-7 h-7" />
           <span className="text-sm font-semibold tracking-tight text-white">Tate</span>
@@ -68,9 +69,10 @@ export function HeroSection() {
             Free · Open Source · macOS
           </span>
         </div>
+        </div>
       </div>
 
-      <div className="fixed top-17 right-[55px] max-lg:hidden pr-4">
+      <div className="absolute top-7 right-[55px] max-lg:hidden pr-4">
         <TatePopupPreview />
       </div>
 
