@@ -3,32 +3,41 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: #0a0a0a;
+  --color-background: #111111;
   --color-foreground: #ededed;
-  --color-card: #111111;
+  --color-card: #1a1a1a;
   --color-card-foreground: #ededed;
-  --color-popover: #111111;
+  --color-popover: #1a1a1a;
   --color-popover-foreground: #ededed;
-  --color-primary: #facc15;
+  --color-primary: #0eeaff;
   --color-primary-foreground: #000000;
   --color-secondary: #1a1a1a;
   --color-secondary-foreground: #ededed;
   --color-muted: #262626;
-  --color-muted-foreground: #a1a1aa;
-  --color-accent: #facc15;
+  --color-muted-foreground: #888888;
+  --color-accent: #0eeaff;
   --color-accent-foreground: #000000;
   --color-destructive: #7f1d1d;
   --color-destructive-foreground: #fca5a5;
   --color-border: rgba(255, 255, 255, 0.08);
-  --color-ring: #facc15;
+  --color-ring: #0eeaff;
   --radius: 0.625rem;
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
-  --font-mono: "SF Mono", "Fira Code", monospace;
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --font-mono: var(--font-geist-mono), "SF Mono", "Fira Code", monospace;
+  --font-display: var(--font-geist-pixel-circle), var(--font-geist-mono), monospace;
 }
 
 :root {
-  --color-background: #0a0a0a;
+  --color-background: #111111;
   --color-foreground: #ededed;
+  --page-accent: #0eeaff;
+  --page-bg: #111111;
+  --page-fg: #ededed;
+  --page-fg-muted: #888888;
+  --page-fg-subtle: #555555;
+  --page-border: rgba(255, 255, 255, 0.08);
+  --btn-secondary-bg: rgba(255, 255, 255, 0.05);
+  --btn-secondary-border: rgba(255, 255, 255, 0.12);
   background-color: var(--color-background);
   color: var(--color-foreground);
 }
@@ -37,4 +46,20 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.page-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+}
+
+.page-glow {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(191, 255, 0, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 100%, rgba(191, 255, 0, 0.04) 0%, transparent 50%);
 }

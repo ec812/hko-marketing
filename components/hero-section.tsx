@@ -1,35 +1,81 @@
-import { ArrowUpRight, Download } from "lucide-react"
+import Image from "next/image"
+import { Download } from "lucide-react"
 import { TateIcon } from "@/components/tate-icon"
+import { GithubIcon } from "@/components/github-icon"
 import { CopyButton } from "@/components/copy-button"
+import { TatePopupPreview } from "@/components/tate-popup-preview"
+
+const warningIcons = [
+  { src: "/icons/tc3_dark.png", alt: "T3" },
+  { src: "/icons/raina_dark.png", alt: "Amber Rain" },
+  { src: "/icons/ts_dark.png", alt: "Thunderstorm" },
+]
 
 export function HeroSection() {
   return (
-    <section className="flex flex-col items-center text-center pt-24 pb-16 px-4">
-      <h1>Real-time Hong Kong weather warnings in your menu bar</h1>
-      <div className="inline-flex items-center gap-3 mb-4 p-3 rounded-2xl bg-white/[0.03] border border-white/5">
-        <TateIcon className="w-16 h-16" />
-        <div className="text-left">
-          <h1 className="text-2xl font-bold text-white">Tate</h1>
-          <p className="text-sm text-white/40">HK WarnSum</p>
+    <section className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-8 lg:pt-12 pb-20 lg:pb-28">
+      <div className="max-w-xl space-y-6">
+        <div className="flex items-center gap-2.5">
+          <TateIcon className="w-7 h-7" />
+          <span className="text-sm font-semibold tracking-tight text-white">Tate</span>
+        </div>
+
+        <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.25rem] font-bold tracking-tight leading-[1.1] text-pretty text-white">
+          Real-Time{" "}
+          <span className="text-primary">HK Weather Warnings</span>{" "}
+          In Your macOS Menu Bar
+        </h1>
+
+        <p className="text-sm sm:text-base leading-relaxed text-pretty text-muted-foreground max-w-md">
+          Never miss a typhoon signal, rainstorm warning, or thunderstorm alert.
+          Tate pulls live data from the Hong Kong Observatory — free and open source.
+        </p>
+
+        <div className="flex flex-wrap items-center gap-3 sm:gap-5">
+          {warningIcons.map((icon) => (
+            <Image
+              key={icon.alt}
+              src={icon.src}
+              alt={icon.alt}
+              width={24}
+              height={24}
+              className="w-6 h-6 opacity-60"
+            />
+          ))}
+          <span className="text-xs text-white/30 font-mono">+ 20 more</span>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-3 pt-1">
+          <a
+            href="https://github.com/ec812/hkwarnsum/releases/latest"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold bg-primary text-primary-foreground hover:brightness-110 transition-all"
+          >
+            <Download className="w-4 h-4" />
+            Download for macOS
+          </a>
+          <a
+            href="https://github.com/ec812/hkwarnsum"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold border border-white/12 bg-white/5 backdrop-blur-xl text-white/80 hover:brightness-125 transition-colors"
+          >
+            <GithubIcon className="w-4 h-4" />
+            Contribute
+          </a>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-3">
+          <CopyButton text="brew install --cask tate" label="brew install --cask tate" />
+          <span className="text-xs font-mono px-2 py-1 rounded text-white/50 bg-white/8">
+            Free · Open Source · macOS
+          </span>
         </div>
       </div>
-     
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        <a
-          href="https://github.com/ec812/hkwarnsum/releases/latest"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-        >
-          <Download className="w-4 h-4" />
-          Download for macOS
-          <ArrowUpRight className="w-3.5 h-3.5" />
-        </a>
-        <CopyButton text="brew install --cask tate" />
-        <a
-          href="https://github.com/ec812/hkwarnsum"
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border border-white/10 transition-colors"
-        >
-          GitHub
-        </a>
+
+      <div className="absolute top-7 right-[-165px] max-lg:hidden pr-4">
+        <TatePopupPreview />
+      </div>
+
+      <div className="lg:hidden mt-12 flex justify-center">
+        <TatePopupPreview />
       </div>
     </section>
   )

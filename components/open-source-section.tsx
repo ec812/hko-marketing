@@ -1,20 +1,28 @@
 import { ArrowUpRight } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { GithubIcon } from "@/components/github-icon"
 
 const badges = [
-  { label: "Tauri 2", color: "bg-orange-500/10 text-orange-400 border-orange-500/20" },
-  { label: "React 19", color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
-  { label: "Rust", color: "bg-purple-500/10 text-purple-400 border-purple-500/20" },
+  { label: "Tauri 2", color: "bg-input border border-border text-input" },
+  { label: "React 19", color: "bg-input border border-border text-input" },
+  { label: "Rust", color: "bg-input border border-border text-input" },
 ]
 
+const contributors = [
+  { name: "Ernest", avatar: "https://avatars.githubusercontent.com/u/16773001?v=4", href: "https://github.com/ec812" },
+]
 export function OpenSourceSection() {
   return (
-    <section className="py-16 px-4 text-center border-t border-white/5">
-      <h2 className="text-xl font-bold text-white">Proudly Open Source</h2>
-      <p className="text-sm text-white/40 mt-1 max-w-md mx-auto">
+    <section className="py-16 lg:py-24 px-6 lg:px-12 text-center border-t border-white/6 max-w-7xl mx-auto">
+      <h2 className="font-display text-3xl lg:text-4xl font-bold tracking-tight text-white text-pretty">
+        Proudly Open Source
+      </h2>
+      <p className="text-sm lg:text-base text-white/50 mt-3 max-w-md mx-auto text-balance">
         Built with Tauri 2, React 19, and Rust — jump in, fix a bug, add a
         warning type
       </p>
-      <div className="flex items-center justify-center gap-2 mt-4 mb-8">
+      <div className="flex items-center justify-center gap-2 mt-5 mb-8">
         {badges.map((b) => (
           <span
             key={b.label}
@@ -24,19 +32,43 @@ export function OpenSourceSection() {
           </span>
         ))}
       </div>
-      <div className="flex items-center justify-center gap-2 mb-6">
-        {Array.from({ length: 8 }).map((_, i) => (
-          <div
-            key={i}
-            className="w-9 h-9 rounded-full bg-white/5 border border-white/10"
-            aria-label={`Contributor ${i + 1}`}
-          />
-        ))}
+      <div className="flex items-center justify-center gap-2 mb-8">
+        {Array.from({ length: 1 }).map((_, i) => {
+          const contributor = contributors[i]
+
+          if (contributor) {
+            return (
+              <Link
+                key={i}
+                href={contributor.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={contributor.avatar}
+                  alt={contributor.name}
+                  width={36}
+                  height={36}
+                  className="w-9 h-9 rounded-full"
+                />
+              </Link>
+            )
+          }
+
+          return (
+            <div
+              key={i}
+              className="w-9 h-9 rounded-full bg-white/5 border border-white/10"
+              aria-label={`Contributor ${i + 1}`}
+            />
+          )
+        })}
       </div>
       <a
         href="https://github.com/ec812/hkwarnsum"
-        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border border-white/10 transition-colors"
+        className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold border border-white/12 bg-white/5 backdrop-blur-xl text-white/80 hover:brightness-125 transition-colors"
       >
+        <GithubIcon className="w-4 h-4" />
         View on GitHub
         <ArrowUpRight className="w-3.5 h-3.5" />
       </a>

@@ -1,18 +1,10 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
+import { GeistPixelCircle } from "geist/font/pixel"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-
-const fontSans = Geist({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
 
 export const metadata: Metadata = {
   title: "Tate — Hong Kong Weather Warnings in Your Menu Bar",
@@ -34,7 +26,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${GeistPixelCircle.variable} antialiased`}
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>

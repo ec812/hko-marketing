@@ -25,7 +25,7 @@ export function CopyButton({ text, label, className }: CopyButtonProps) {
       onClick={handleCopy}
       className={cn(
         "inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
-        "bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border border-white/10",
+        "bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border border-white/12 backdrop-blur-xl",
         className,
       )}
     >

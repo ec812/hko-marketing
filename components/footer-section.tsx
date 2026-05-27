@@ -1,6 +1,6 @@
 export function FooterSection() {
   return (
-    <footer className="py-6 px-4 text-center text-[10px] text-white/25 border-t border-white/5">
+    <footer className="py-6 px-4 text-center text-sm text-muted-foreground border-t border-white/5">
       <p>
         Weather data provided by the{" "}
         <a

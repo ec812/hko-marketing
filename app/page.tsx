@@ -1,5 +1,4 @@
 import { MacOSMenuBar } from "@/components/macos-menu-bar"
-import { TatePopupPreview } from "@/components/tate-popup-preview"
 import { HeroSection } from "@/components/hero-section"
 import { FeaturesGrid } from "@/components/features-grid"
 import { OpenSourceSection } from "@/components/open-source-section"
@@ -7,17 +6,19 @@ import { FooterSection } from "@/components/footer-section"
 
 export default function Home() {
   return (
-    <>
-      <MacOSMenuBar />
-      <div className="min-h-[420px] bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a] flex justify-end pr-16 max-md:pr-4 max-md:justify-center max-md:min-h-0 max-md:py-8">
-        <div className="hidden md:block">
-          <TatePopupPreview />
-        </div>
+    <div className="relative min-h-screen bg-background">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="absolute inset-0 page-glow" />
+        <div className="absolute inset-0 page-grain" />
       </div>
-      <HeroSection />
-      <FeaturesGrid />
-      <OpenSourceSection />
-      <FooterSection />
-    </>
+
+      <div className="relative">
+        <MacOSMenuBar />
+        <HeroSection />
+        <FeaturesGrid />
+        <OpenSourceSection />
+        <FooterSection />
+      </div>
+    </div>
   )
 }

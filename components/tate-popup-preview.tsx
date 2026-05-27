@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { TriangleAlert } from "lucide-react"
 
 interface MockWarning {
@@ -39,7 +40,7 @@ const warnings: MockWarning[] = [
   },
   {
     name: "Thunderstorm Warning",
-    actionLabel: "Issue",
+    actionLabel: "Reissued",
     timeAgo: "1h ago",
     severity: "advisory",
     colorClass: "bg-blue-400",
@@ -63,12 +64,12 @@ export function TatePopupPreview() {
   }
 
   return (
-    <div className="relative">
+    <div className="relative -top-5">
       <svg
         width={20}
         height={6}
         viewBox="0 0 50 15"
-        className="absolute -top-[5px] right-12 z-10 shrink-0"
+        className="absolute top-[-5px] right-[180px] z-10 shrink-0"
       >
         <polygon
           points="25 0 0 15 50 15 25 0"
@@ -81,7 +82,7 @@ export function TatePopupPreview() {
       <div className="w-[380px] bg-neutral-900 text-white font-sans select-none rounded-xl border border-neutral-800 outline-none shadow-2xl shadow-black/60">
         <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/10">
           <div className="flex items-center gap-2">
-            <TriangleAlert className="w-4 h-4 text-yellow-400" />
+            <TriangleAlert className="w-4 h-4 text-yellow-500" />
             <h1 className="text-sm font-bold">HK Warnings</h1>
           </div>
         </div>
@@ -108,9 +109,11 @@ export function TatePopupPreview() {
                         <div className="p-3">
                           <div className="flex items-start justify-between gap-2">
                             <div className="flex items-center gap-2.5 flex-1 min-w-0">
-                              <img
+                              <Image
                                 src={w.icon}
                                 alt={w.name}
+                                width={24}
+                                height={24}
                                 className="w-6 h-6 shrink-0 object-contain"
                               />
                               <div className="min-w-0">
@@ -155,7 +158,7 @@ export function TatePopupPreview() {
             <input
               type="checkbox"
               defaultChecked
-              className="rounded border-white/30 bg-neutral-800 text-yellow-400 outline-none"
+              className="rounded border-white/30 bg-neutral-800 text-primary outline-none"
             />
             <span className="text-[11px] text-white/50">Hide from Dock</span>
           </label>
