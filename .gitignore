@@ -36,3 +36,4 @@ pnpm-debug.log*
 next-env.d.ts
 
 .superpowers/
+.pnpm-store/v11/index.db
