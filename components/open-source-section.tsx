@@ -34,7 +34,7 @@ export function OpenSourceSection() {
         ))}
       </div>
       <a
-        href="https://github.com/ernest/hkowarnsum"
+        href="https://github.com/ec812/hkwarnsum"
         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border border-white/10 transition-colors"
       >
         View on GitHub

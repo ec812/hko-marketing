@@ -1,10 +1,15 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { Wifi, Battery, Volume2, Menu } from "lucide-react"
 
 const menuItems = ["Tate", "File", "Edit", "View", "Window", "Help"]
 
 function MacOSClock() {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => { setMounted(true) }, [])
+  if (!mounted) return <span className="tabular-nums">Loading...</span>
+
   const now = new Date()
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]

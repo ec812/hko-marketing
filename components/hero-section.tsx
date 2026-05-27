@@ -17,7 +17,7 @@ export function HeroSection() {
       </p>
       <div className="flex flex-wrap items-center justify-center gap-3">
         <a
-          href="https://github.com/ernest/hkowarnsum/releases/latest"
+          href="https://github.com/ec812/hkwarnsum/releases/latest"
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
         >
           <Download className="w-4 h-4" />
@@ -26,7 +26,7 @@ export function HeroSection() {
         </a>
         <CopyButton text="brew install --cask tate" />
         <a
-          href="https://github.com/ernest/hkowarnsum"
+          href="https://github.com/ec812/hkwarnsum"
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border border-white/10 transition-colors"
         >
           GitHub
