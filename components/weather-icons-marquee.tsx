@@ -2,6 +2,8 @@
 
 import Marquee from "react-fast-marquee"
 import Image from "next/image"
+import { motion, useReducedMotion } from "motion/react"
+import { fadeUp, sectionTransition, sequenceDelay } from "@/lib/page-motion"
 
 const weatherIcons = [
   { src: "/icons/tc1_dark.png", alt: "T1" },
@@ -49,7 +51,7 @@ function MarqueeRow({
     >
       <Marquee pauseOnHover direction={direction} speed={speed}>
         {icons.map((icon, idx) => (
-          <div  key={`${rowKey}-${icon.alt}-${idx}`} className="flex items-center gap-2 border border-border rounded-xl p-4 mx-4">
+          <div  key={`${rowKey}-${icon.alt}-${idx}`} className="flex items-center gap-2 border border-border rounded-xl p-4 mx-2">
             <Image
               src={icon.src}
               alt={icon.alt}
@@ -66,33 +68,73 @@ function MarqueeRow({
 }
 
 export function WeatherIconsMarquee() {
+  const reducedMotion = useReducedMotion()
+
   return (
     <section className="px-6 py-16 lg:px-12 lg:py-20">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 text-center">
-          <h2 className="font-display text-3xl font-bold tracking-tight text-pretty text-white lg:text-4xl">
+        <motion.div
+          className="mb-10 text-center"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: reducedMotion ? 0 : 0.08,
+                delayChildren: sequenceDelay("marquee", reducedMotion),
+              },
+            },
+          }}
+        >
+          <motion.h2
+            className="font-display text-3xl font-bold tracking-tight text-pretty text-white lg:text-4xl"
+            variants={fadeUp}
+            transition={sectionTransition}
+          >
             Every Warning Type Covered
-          </h2>
-          <p className="mx-auto mt-3 max-w-lg text-sm text-balance text-white/50 lg:text-base">
+          </motion.h2>
+          <motion.p
+            className="mx-auto mt-3 max-w-lg text-sm text-balance text-white/50 lg:text-base"
+            variants={fadeUp}
+            transition={sectionTransition}
+          >
             Typhoon signals, rainstorm alerts, thunderstorms, and more — all from
             the Hong Kong Observatory
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="flex flex-col gap-4 md:gap-8">
-          <MarqueeRow
-            direction="right"
-            speed={marqueeSpeed}
-            icons={weatherIcons}
-            rowKey="row-one"
-          />
-          <MarqueeRow
-            direction="left"
-            speed={marqueeSpeed}
-            icons={weatherIcons}
-            rowKey="row-two"
-          />
-        </div>
+        <motion.div
+          className="flex flex-col gap-4 md:gap-8"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: reducedMotion ? 0 : 0.12,
+                delayChildren: reducedMotion ? 0 : sequenceDelay("marquee", reducedMotion) + 0.08,
+              },
+            },
+          }}
+        >
+          <motion.div variants={fadeUp} transition={sectionTransition}>
+            <MarqueeRow
+              direction="right"
+              speed={marqueeSpeed}
+              icons={weatherIcons}
+              rowKey="row-one"
+            />
+          </motion.div>
+          <motion.div variants={fadeUp} transition={sectionTransition}>
+            <MarqueeRow
+              direction="left"
+              speed={marqueeSpeed}
+              icons={weatherIcons}
+              rowKey="row-two"
+            />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

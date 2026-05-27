@@ -7,21 +7,13 @@ import { TateIcon } from "@/components/tate-icon"
 import { GithubIcon } from "@/components/github-icon"
 import { CopyButton } from "@/components/copy-button"
 import { TatePopupPreview } from "@/components/tate-popup-preview"
+import { fadeUp, pageSequence, sequenceDelay } from "@/lib/page-motion"
 
 const warningIcons = [
   { src: "/icons/tc3_dark.png", alt: "T3" },
   { src: "/icons/raina_dark.png", alt: "Amber Rain" },
   { src: "/icons/ts_dark.png", alt: "Thunderstorm" },
 ]
-
-const popupDelay = 0.55
-const heroDelay = 1.05
-const mobilePopupDelay = 1.45
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 18 },
-  visible: { opacity: 1, y: 0 },
-}
 
 export function HeroSection() {
   const reducedMotion = useReducedMotion()
@@ -38,7 +30,7 @@ export function HeroSection() {
             visible: {
               transition: {
                 staggerChildren: reducedMotion ? 0 : 0.08,
-                delayChildren: reducedMotion ? 0 : heroDelay,
+                delayChildren: sequenceDelay("hero", reducedMotion),
               },
             },
           }}
@@ -110,11 +102,11 @@ export function HeroSection() {
       </div>
 
       <div className="absolute top-7 right-[69px] max-lg:hidden pr-4">
-        <TatePopupPreview delay={popupDelay} />
+        <TatePopupPreview delay={pageSequence.popup} />
       </div>
 
       <div className="lg:hidden mt-12 flex justify-center">
-        <TatePopupPreview delay={mobilePopupDelay} />
+        <TatePopupPreview delay={pageSequence.popup} />
       </div>
     </section>
   )

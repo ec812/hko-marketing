@@ -4,6 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { TriangleAlert } from "lucide-react"
 import { motion, useReducedMotion } from "motion/react"
+import { motionEase, pageSequence, sectionTransition } from "@/lib/page-motion"
 
 type Locale = "en" | "tc"
 
@@ -94,7 +95,7 @@ interface TatePopupPreviewProps {
   delay?: number
 }
 
-export function TatePopupPreview({ delay = 0.55 }: TatePopupPreviewProps) {
+export function TatePopupPreview({ delay = pageSequence.popup }: TatePopupPreviewProps) {
   const [locale, setLocale] = useState<Locale>("en")
   const [expanded, setExpanded] = useState<string | null>(null)
   const reducedMotion = useReducedMotion()
@@ -111,9 +112,10 @@ export function TatePopupPreview({ delay = 0.55 }: TatePopupPreviewProps) {
       initial={reducedMotion ? false : { opacity: 0, y: -10, scale: 0.97 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{
+        ...sectionTransition,
         duration: 0.45,
         delay: reducedMotion ? 0 : delay,
-        ease: [0.22, 1, 0.36, 1],
+        ease: motionEase,
       }}
       style={{ transformOrigin: "top right" }}
     >

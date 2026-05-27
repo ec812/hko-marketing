@@ -1,6 +1,21 @@
+"use client"
+
+import { motion, useReducedMotion } from "motion/react"
+import { sectionTransition, sequenceDelay } from "@/lib/page-motion"
+
 export function FooterSection() {
+  const reducedMotion = useReducedMotion()
+
   return (
-    <footer className="py-6 px-4 text-center text-sm text-muted-foreground border-t border-white/5">
+    <motion.footer
+      className="py-6 px-4 text-center text-sm text-muted-foreground border-t border-white/5"
+      initial={reducedMotion ? false : { opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        ...sectionTransition,
+        delay: sequenceDelay("footer", reducedMotion),
+      }}
+    >
       <p>
         Weather data provided by the{" "}
         <a
@@ -13,6 +28,6 @@ export function FooterSection() {
         </a>
         {" · "}Tate · MIT License · v0.1.1
       </p>
-    </footer>
+    </motion.footer>
   )
 }

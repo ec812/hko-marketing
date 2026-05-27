@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Layers,
   RefreshCw,
@@ -6,6 +8,8 @@ import {
   WifiOff,
   Bell,
 } from "lucide-react"
+import { motion, useReducedMotion } from "motion/react"
+import { fadeUp, sectionTransition, sequenceDelay } from "@/lib/page-motion"
 
 const features = [
   {
@@ -41,29 +45,67 @@ const features = [
 ]
 
 export function FeaturesGrid() {
+  const reducedMotion = useReducedMotion()
+
   return (
     <section className="py-16 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto">
-      <div className="mb-10">
-        <h2 className="font-display text-3xl lg:text-4xl font-bold tracking-tight text-white text-pretty">
+      <motion.div
+        className="mb-10"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: reducedMotion ? 0 : 0.08,
+              delayChildren: sequenceDelay("features", reducedMotion),
+            },
+          },
+        }}
+      >
+        <motion.h2
+          className="font-display text-3xl lg:text-4xl font-bold tracking-tight text-white text-pretty"
+          variants={fadeUp}
+          transition={sectionTransition}
+        >
           Never Miss a Warning
-        </h2>
-        <p className="text-sm lg:text-base text-white/50 mt-3 max-w-lg text-pretty">
+        </motion.h2>
+        <motion.p
+          className="text-sm lg:text-base text-white/50 mt-3 max-w-lg text-pretty"
+          variants={fadeUp}
+          transition={sectionTransition}
+        >
           Tate keeps you informed without lifting a finger
-        </p>
-      </div>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        </motion.p>
+      </motion.div>
+
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: reducedMotion ? 0 : 0.06,
+              delayChildren: reducedMotion ? 0 : sequenceDelay("features", reducedMotion) + 0.12,
+            },
+          },
+        }}
+      >
         {features.map((feature) => (
-          <div
+          <motion.div
             key={feature.title}
             className="rounded-xl border border-white/10 bg-black/20 p-5 hover:bg-black/30 transition-all duration-200"
+            variants={fadeUp}
+            transition={sectionTransition}
           >
             <feature.icon className="w-5 h-5 text-primary mb-3" />
             <h3 className="text-sm font-semibold text-white mb-1">{feature.title}</h3>
             <p className="text-xs text-white/40 leading-relaxed">{feature.desc}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   )
 }
