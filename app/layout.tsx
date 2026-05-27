@@ -5,6 +5,7 @@ import { GeistPixelCircle } from "geist/font/pixel"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { AnchoredToastProvider } from "@/components/ui/toast"
 
 export const metadata: Metadata = {
   title: "Tate — Hong Kong Weather Warnings in Your Menu Bar",
@@ -32,7 +33,9 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable} ${GeistPixelCircle.variable} antialiased`}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <AnchoredToastProvider>{children}</AnchoredToastProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
