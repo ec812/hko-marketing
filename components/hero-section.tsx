@@ -70,7 +70,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute top-7 right-[-165px] max-lg:hidden pr-4">
+      <div className="fixed top-17 right-[55px] max-lg:hidden pr-4">
         <TatePopupPreview />
       </div>
 
