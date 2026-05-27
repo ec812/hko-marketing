@@ -56,7 +56,7 @@ export function HeroSection() {
           </a>
           <a
             href="https://github.com/ec812/hkwarnsum"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold border border-white/12 bg-white/5 backdrop-blur-xl text-white/80 hover:brightness-125 transition-colors"
+            className="inline-flex items-center font-mono justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold border border-white/12 bg-white/5 backdrop-blur-xl text-white/80 hover:brightness-125 transition-colors"
           >
             <GithubIcon className="w-4 h-4" />
             Contribute
@@ -64,7 +64,11 @@ export function HeroSection() {
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
-          <CopyButton text="brew install --cask tate" label="brew install --cask tate" />
+          <CopyButton
+            text="brew install --cask tate"
+            label="brew install --cask tate"
+            className="font-mono"
+          />
           <span className="text-xs font-mono px-2 py-1 rounded text-white/50 bg-white/8">
             Free · Open Source · macOS
           </span>
@@ -72,7 +76,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute top-7 right-[55px] max-lg:hidden pr-4">
+      <div className="absolute top-7 right-[69px] max-lg:hidden pr-4">
         <TatePopupPreview />
       </div>
 

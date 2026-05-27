@@ -23,8 +23,9 @@
   --color-ring: #0eeaff;
   --radius: 0.625rem;
   --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  --font-mono: var(--font-geist-mono), "SF Mono", "Fira Code", monospace;
+  --font-mono: var(--font-geist-mono), monospace;
   --font-display: var(--font-geist-pixel-circle), var(--font-geist-mono), monospace;
+  --font-macos: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
 }
 
 :root {
@@ -46,6 +47,10 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+} 
+
+.font-macos {
+  font-family: var(--font-macos);
 }
 
 .font-display {

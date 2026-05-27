@@ -52,7 +52,7 @@ function MacOSClock() {
 export function MacOSMenuBar() {
   return (
     <>
-      <div className="hidden md:flex h-10 items-center justify-between px-4 text-[13px] text-white/85 bg-black/30 backdrop-blur-xl border-b border-white/10">
+      <div className="font-macos hidden md:flex h-10 items-center justify-between px-4 text-[13px] text-white/85 bg-black/30 backdrop-blur-xl border-b border-white/10">
         <div className="flex items-center gap-5">
           <AppleIcon className="w-4 h-4" />
           {menuItems.map((item) => (
@@ -68,19 +68,19 @@ export function MacOSMenuBar() {
           <Image
             src="/icons/tc3_dark.png"
             alt="T3"
-            width={16}
-            height={16}
-            className="w-4 h-4"
+            width={18}
+            height={18}
+            className="w-6 h-6"
           />
-          <Volume2 className="w-4 h-4" />
-          <Wifi className="w-4 h-4" />
-          <Battery className="w-4 h-4" />
+          <Volume2 className="w-4.5 h-4.5" />
+          <Wifi className="w-4.5 h-4.5" />
+          <Battery className="w-4.5 h-4.5" />
 
           <MacOSClock />
         </div>
       </div>
 
-      <div className="md:hidden h-12 flex items-center justify-between px-4 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="font-macos md:hidden h-12 flex items-center justify-between px-4 bg-black/80 backdrop-blur-xl border-b border-white/10">
         <span className="font-extrabold text-sm text-white">Tate</span>
         <Menu className="w-5 h-5 text-white/60" />
       </div>
