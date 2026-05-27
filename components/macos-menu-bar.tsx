@@ -42,9 +42,9 @@ export function MacOSMenuBar() {
           <Wifi className="w-4 h-4" />
           <Battery className="w-4 h-4" />
           <img
-            src="/app-icon.png"
-            alt="Tate"
-            className="w-4 h-4 rounded"
+            src="/icons/tc3_dark.png"
+            alt="T3"
+            className="w-4 h-4"
           />
           <MacOSClock />
         </div>
