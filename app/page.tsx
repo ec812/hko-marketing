@@ -19,8 +19,8 @@ export default function Home() {
         <HeroSection />
         <WeatherIconsMarquee />
         <FeaturesGrid />
-        <OpenSourceSection />
         <FaqSection />
+        <OpenSourceSection />
         <FooterSection />
       </div>
     </div>

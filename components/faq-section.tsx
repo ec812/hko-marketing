@@ -76,10 +76,7 @@ export function FaqSection() {
         </motion.div>
 
         <motion.div variants={fadeUp} transition={sectionTransition}>
-          <Accordion
-            multiple
-            className="rounded-2xl border border-border bg-card px-6 lg:px-8"
-          >
+          <Accordion className="rounded-2xl border border-border bg-card px-6 lg:px-8">
             {faqs.map((faq) => (
               <AccordionItem key={faq.value} value={faq.value}>
                 <AccordionTrigger className="text-white hover:text-white/90">

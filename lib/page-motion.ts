@@ -10,15 +10,15 @@ export const sectionTransition = {
   ease: motionEase,
 } as const
 
-/** Page load entrance order: menu bar → popup → hero → marquee → features → open source → faq → footer */
+/** Page load entrance order: menu bar → popup → hero → marquee → features → faq → open source → footer */
 export const pageSequence = {
   menuBar: 0,
   popup: 0.45,
   hero: 0.95,
   marquee: 1.9,
   features: 3.05,
-  openSource: 3.85,
-  faq: 4.15,
+  faq: 3.85,
+  openSource: 4.15,
   footer: 4.75,
 } as const
 
