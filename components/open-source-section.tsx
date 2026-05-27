@@ -5,6 +5,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useReducedMotion } from "motion/react"
 import { GithubIcon } from "@/components/github-icon"
+import {
+  Tooltip,
+  TooltipPopup,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { fadeUp, sectionTransition, sequenceDelay } from "@/lib/page-motion"
 
 const badges = [
@@ -87,20 +92,26 @@ export function OpenSourceSection() {
 
                 if (contributor) {
                   return (
-                    <Link
-                      key={i}
-                      href={contributor.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Image
-                        src={contributor.avatar}
-                        alt={contributor.name}
-                        width={36}
-                        height={36}
-                        className="w-9 h-9 rounded-full"
-                      />
-                    </Link>
+                    <Tooltip key={contributor.name}>
+                      <TooltipTrigger
+                        render={
+                          <Link
+                            href={contributor.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          />
+                        }
+                      >
+                        <Image
+                          src={contributor.avatar}
+                          alt={contributor.name}
+                          width={36}
+                          height={36}
+                          className="w-9 h-9 rounded-full"
+                        />
+                      </TooltipTrigger>
+                      <TooltipPopup>{contributor.name}</TooltipPopup>
+                    </Tooltip>
                   )
                 }
 

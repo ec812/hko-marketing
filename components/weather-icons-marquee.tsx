@@ -105,7 +105,7 @@ export function WeatherIconsMarquee() {
         </motion.div>
 
         <motion.div
-          className="flex flex-col gap-4 md:gap-8"
+          className="flex flex-col gap-4 md:gap-4"
           initial="hidden"
           animate="visible"
           variants={{

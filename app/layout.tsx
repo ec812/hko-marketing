@@ -6,6 +6,7 @@ import { GeistPixelCircle } from "geist/font/pixel"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { AnchoredToastProvider } from "@/components/ui/toast"
+import { TooltipProvider } from "@/components/ui/tooltip"
 
 export const metadata: Metadata = {
   title: "Tate — Hong Kong Weather Warnings in Your Menu Bar",
@@ -34,7 +35,9 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>
-          <AnchoredToastProvider>{children}</AnchoredToastProvider>
+          <AnchoredToastProvider>
+            <TooltipProvider>{children}</TooltipProvider>
+          </AnchoredToastProvider>
         </ThemeProvider>
       </body>
     </html>
