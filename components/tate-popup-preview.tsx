@@ -64,8 +64,7 @@ export function TatePopupPreview() {
         width={20}
         height={6}
         viewBox="0 0 50 15"
-        fill="none"
-        className="absolute -top-[5px] right-12 z-10"
+        className="absolute -top-[5px] right-12 z-10 shrink-0"
       >
         <polygon
           points="25 0 0 15 50 15 25 0"
