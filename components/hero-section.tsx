@@ -5,6 +5,7 @@ import { CopyButton } from "@/components/copy-button"
 export function HeroSection() {
   return (
     <section className="flex flex-col items-center text-center pt-24 pb-16 px-4">
+      <h1>Real-time Hong Kong weather warnings in your menu bar</h1>
       <div className="inline-flex items-center gap-3 mb-4 p-3 rounded-2xl bg-white/[0.03] border border-white/5">
         <TateIcon className="w-16 h-16" />
         <div className="text-left">
@@ -12,9 +13,7 @@ export function HeroSection() {
           <p className="text-sm text-white/40">HK WarnSum</p>
         </div>
       </div>
-      <p className="text-lg text-white/60 max-w-md mx-auto mb-8">
-        Real-time Hong Kong weather warnings in your menu bar
-      </p>
+     
       <div className="flex flex-wrap items-center justify-center gap-3">
         <a
           href="https://github.com/ec812/hkwarnsum/releases/latest"
