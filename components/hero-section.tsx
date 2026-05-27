@@ -19,7 +19,7 @@ export function HeroSection() {
   const reducedMotion = useReducedMotion()
 
   return (
-    <section className="relative w-full px-6 lg:px-12 pt-8 lg:pt-24 pb-20 lg:pb-24">
+    <section className="relative w-full px-6 lg:px-12 pt-12 lg:pt-24 pb-20 lg:pb-24">
       <div className="max-w-7xl mx-auto lg:px-12">
         <motion.div
           className="max-w-xl space-y-6"

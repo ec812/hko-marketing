@@ -30,10 +30,10 @@ app/
 
 components/
 ├── macos-menu-bar.tsx       # macOS menu bar simulation
-├── tate-popup-preview.tsx   # Live app popup mockup
-├── tate-icon.tsx            # App icon SVG
 ├── hero-section.tsx         # Hero with download CTAs
+├── weather-icons-marquee.tsx # HKO weather icons marquee
 ├── features-grid.tsx        # Bento grid of 6 features
+├── faq-section.tsx          # FAQ accordion
 ├── open-source-section.tsx  # Open source / GitHub
 ├── footer-section.tsx       # HKO attribution footer
 ├── copy-button.tsx          # Clipboard copy button

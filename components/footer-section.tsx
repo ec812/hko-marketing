@@ -20,7 +20,7 @@ export function FooterSection() {
       }}
     >
       <div className="max-w-7xl mx-auto px-12">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col lg:flex-row gap-6 justify-between items-center">
           <p>
             Weather data provided by the{" "}
             <a
