@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/hero-section"
 import { WeatherIconsMarquee } from "@/components/weather-icons-marquee"
 import { FeaturesGrid } from "@/components/features-grid"
 import { OpenSourceSection } from "@/components/open-source-section"
+import { FaqSection } from "@/components/faq-section"
 import { FooterSection } from "@/components/footer-section"
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
         <WeatherIconsMarquee />
         <FeaturesGrid />
         <OpenSourceSection />
+        <FaqSection />
         <FooterSection />
       </div>
     </div>
