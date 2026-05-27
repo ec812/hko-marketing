@@ -1,6 +1,7 @@
 "use client"
 
 import Marquee from "react-fast-marquee"
+import Image from "next/image"
 
 const weatherIcons = [
   { src: "/icons/tc1_dark.png", alt: "T1" },
@@ -29,6 +30,8 @@ const weatherIcons = [
 const marqueeMask =
   "[mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
 
+const marqueeSpeed = 50
+
 function MarqueeRow({
   direction,
   speed,
@@ -46,14 +49,16 @@ function MarqueeRow({
     >
       <Marquee pauseOnHover direction={direction} speed={speed}>
         {icons.map((icon, idx) => (
-          <img
-            key={`${rowKey}-${icon.alt}-${idx}`}
-            src={icon.src}
-            alt={icon.alt}
-            width={48}
-            height={48}
-            className="mx-4 size-10 object-contain opacity-70 md:mx-8 md:size-12"
-          />
+          <div  key={`${rowKey}-${icon.alt}-${idx}`} className="flex items-center gap-2 border border-border rounded-xl p-4 mx-4">
+            <Image
+              src={icon.src}
+              alt={icon.alt}
+              width={24}
+              height={24}
+              className="size-6 object-contain opacity-70 md:mx-2 md:size-6"
+            />
+            <span className="text-sm text-foreground">{icon.alt}</span>
+          </div>
         ))}
       </Marquee>
     </div>
@@ -68,17 +73,22 @@ export function WeatherIconsMarquee() {
           <h2 className="font-display text-3xl font-bold tracking-tight text-pretty text-white lg:text-4xl">
             Every Warning Type Covered
           </h2>
-          <p className="mx-auto mt-3 max-w-lg text-sm text-pretty text-white/50 lg:text-base">
+          <p className="mx-auto mt-3 max-w-lg text-sm text-balance text-white/50 lg:text-base">
             Typhoon signals, rainstorm alerts, thunderstorms, and more — all from
             the Hong Kong Observatory
           </p>
         </div>
 
         <div className="flex flex-col gap-4 md:gap-8">
-          <MarqueeRow direction="right" icons={weatherIcons} rowKey="row-one" />
+          <MarqueeRow
+            direction="right"
+            speed={marqueeSpeed}
+            icons={weatherIcons}
+            rowKey="row-one"
+          />
           <MarqueeRow
             direction="left"
-            speed={30}
+            speed={marqueeSpeed}
             icons={weatherIcons}
             rowKey="row-two"
           />
