@@ -35,9 +35,9 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>
-          <AnchoredToastProvider>
-            <TooltipProvider>{children}</TooltipProvider>
-          </AnchoredToastProvider>
+          <TooltipProvider delay={0}>
+            <AnchoredToastProvider>{children}</AnchoredToastProvider>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

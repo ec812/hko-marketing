@@ -1,8 +1,8 @@
 "use client"
 
+import { useState } from "react"
 import { ArrowUpRight } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
 import { motion, useReducedMotion } from "motion/react"
 import { GithubIcon } from "@/components/github-icon"
 import {
@@ -19,9 +19,52 @@ const badges = [
 ]
 
 const contributors = [
-  { name: "Ernest", avatar: "https://avatars.githubusercontent.com/u/16773001?v=4", href: "https://github.com/ec812" },
+  { name: "ec812", avatar: "https://avatars.githubusercontent.com/u/16773001?v=4", href: "https://github.com/ec812" },
   { name: "jargoti", avatar: "https://avatars.githubusercontent.com/u/197363797?v=4", href: "https://github.com/jargoti20" },
 ]
+
+function ContributorAvatar({
+  name,
+  avatar,
+  href,
+}: {
+  name: string
+  avatar: string
+  href: string
+}) {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <Tooltip open={open} onOpenChange={setOpen}>
+      <TooltipTrigger
+        delay={0}
+        closeDelay={0}
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+        onFocus={() => setOpen(true)}
+        onBlur={() => setOpen(false)}
+        render={
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex rounded-full"
+            aria-label={name}
+          />
+        }
+      >
+        <Image
+          src={avatar}
+          alt={name}
+          width={36}
+          height={36}
+          className="w-9 h-9 rounded-full"
+        />
+      </TooltipTrigger>
+      <TooltipPopup sideOffset={8}>{name}</TooltipPopup>
+    </Tooltip>
+  )
+}
 
 export function OpenSourceSection() {
   const reducedMotion = useReducedMotion()
@@ -87,42 +130,16 @@ export function OpenSourceSection() {
               variants={fadeUp}
               transition={sectionTransition}
             >
-              {Array.from({ length: 2 }).map((_, i) => {
-                const contributor = contributors[i]
-
-                if (contributor) {
-                  return (
-                    <Tooltip key={contributor.name}>
-                      <TooltipTrigger
-                        render={
-                          <Link
-                            href={contributor.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          />
-                        }
-                      >
-                        <Image
-                          src={contributor.avatar}
-                          alt={contributor.name}
-                          width={36}
-                          height={36}
-                          className="w-9 h-9 rounded-full"
-                        />
-                      </TooltipTrigger>
-                      <TooltipPopup>{contributor.name}</TooltipPopup>
-                    </Tooltip>
-                  )
-                }
-
-                return (
-                  <div
-                    key={i}
-                    className="w-9 h-9 rounded-full bg-white/5 border border-white/10"
-                    aria-label={`Contributor ${i + 1}`}
-                  />
-                )
-              })}
+              {contributors.map((contributor) => (
+                <ContributorAvatar key={contributor.name} {...contributor} />
+              ))}
+              {Array.from({ length: Math.max(0, 2 - contributors.length) }).map((_, i) => (
+                <div
+                  key={`placeholder-${i}`}
+                  className="w-9 h-9 rounded-full bg-white/5 border border-white/10"
+                  aria-label={`Contributor ${contributors.length + i + 1}`}
+                />
+              ))}
             </motion.div>
           </motion.div>
           <motion.div variants={fadeUp} transition={sectionTransition}>
