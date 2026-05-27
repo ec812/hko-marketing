@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { TriangleAlert } from "lucide-react"
+import { motion, useReducedMotion } from "motion/react"
 
 type Locale = "en" | "tc"
 
@@ -89,9 +90,14 @@ function t(text: LocalizedText, locale: Locale) {
   return text[locale]
 }
 
-export function TatePopupPreview() {
+interface TatePopupPreviewProps {
+  delay?: number
+}
+
+export function TatePopupPreview({ delay = 0.55 }: TatePopupPreviewProps) {
   const [locale, setLocale] = useState<Locale>("en")
   const [expanded, setExpanded] = useState<string | null>(null)
+  const reducedMotion = useReducedMotion()
 
   const groups = {
     critical: warnings.filter((w) => w.severity === "critical"),
@@ -100,7 +106,17 @@ export function TatePopupPreview() {
   }
 
   return (
-    <div className="relative -top-5">
+    <motion.div
+      className="relative -top-5"
+      initial={reducedMotion ? false : { opacity: 0, y: -10, scale: 0.97 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{
+        duration: 0.45,
+        delay: reducedMotion ? 0 : delay,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      style={{ transformOrigin: "top right" }}
+    >
       <svg
         width={20}
         height={6}
@@ -212,6 +228,6 @@ export function TatePopupPreview() {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
