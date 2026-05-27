@@ -24,6 +24,7 @@
       "headers": {
         "Authorization": "Bearer aceternity_cdba409a7009ba28238e7656a55b414ef94536b83113a900c97de55acf533094"
       }
-    }
+    },
+    "@coss": "https://coss.com/ui/r/{name}.json"
   }
 }
