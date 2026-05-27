@@ -11,6 +11,7 @@ interface MockWarning {
   type?: string
   detail?: string[]
   colorClass: string
+  icon: string
 }
 
 const warnings: MockWarning[] = [
@@ -21,6 +22,7 @@ const warnings: MockWarning[] = [
     severity: "critical",
     type: "T3",
     colorClass: "bg-red-500",
+    icon: "/icons/tc3_dark.png",
     detail: [
       "The Tropical Cyclone Warning Signal No. 3 is now in force.",
       "Strong winds are expected or blowing over Hong Kong.",
@@ -33,6 +35,7 @@ const warnings: MockWarning[] = [
     severity: "standard",
     type: "Amber",
     colorClass: "bg-yellow-400",
+    icon: "/icons/raina_dark.png",
   },
   {
     name: "Thunderstorm Warning",
@@ -40,6 +43,7 @@ const warnings: MockWarning[] = [
     timeAgo: "1h ago",
     severity: "advisory",
     colorClass: "bg-blue-400",
+    icon: "/icons/ts_dark.png",
   },
 ]
 
@@ -104,9 +108,11 @@ export function TatePopupPreview() {
                         <div className="p-3">
                           <div className="flex items-start justify-between gap-2">
                             <div className="flex items-center gap-2.5 flex-1 min-w-0">
-                              <div className="w-6 h-6 shrink-0 rounded bg-white/10 flex items-center justify-center text-[10px]">
-                                ⚠
-                              </div>
+                              <img
+                                src={w.icon}
+                                alt={w.name}
+                                className="w-6 h-6 shrink-0 object-contain"
+                              />
                               <div className="min-w-0">
                                 <h3 className="text-sm font-semibold text-white truncate">
                                   {w.name}
