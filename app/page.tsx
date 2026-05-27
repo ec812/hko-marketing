@@ -1,5 +1,6 @@
 import { MacOSMenuBar } from "@/components/macos-menu-bar"
 import { HeroSection } from "@/components/hero-section"
+import { WeatherIconsMarquee } from "@/components/weather-icons-marquee"
 import { FeaturesGrid } from "@/components/features-grid"
 import { OpenSourceSection } from "@/components/open-source-section"
 import { FooterSection } from "@/components/footer-section"
@@ -15,6 +16,7 @@ export default function Home() {
       <div className="relative">
         <MacOSMenuBar />
         <HeroSection />
+        <WeatherIconsMarquee />
         <FeaturesGrid />
         <OpenSourceSection />
         <FooterSection />
