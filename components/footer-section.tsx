@@ -22,14 +22,14 @@ export function FooterSection() {
       <div className="max-w-7xl mx-auto px-12">
         <div className="flex flex-col lg:flex-row gap-6 justify-between items-center">
           <p>
-            Weather data provided by the{" "}
+            Weather data{" "}
             <a
               href="https://www.hko.gov.hk/en/aab/opendata.html"
               className="underline hover:text-white/40 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Hong Kong Observatory Open Data API
+              © Hong Kong Observatory
             </a>
             {" · "}Tate · MIT License · v0.1.1
           </p>

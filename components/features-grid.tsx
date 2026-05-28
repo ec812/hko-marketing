@@ -14,33 +14,33 @@ import { fadeUp, sectionTransition, sequenceDelay } from "@/lib/page-motion"
 const features = [
   {
     icon: Layers,
-    title: "Smart Tray Icons",
-    desc: "Composite icons that display active warnings at a glance",
+    title: "At-a-Glance Warnings",
+    desc: "See every active HK warning right from your menu bar. No clicking, no refreshing.",
   },
   {
     icon: Languages,
-    title: "Bilingual by Default",
-    desc: "Full English and Traditional Chinese language support",
+    title: "English + 中文",
+    desc: "Switch between English and Traditional Chinese from the menu. For expats and locals alike.",
   },
   {
     icon: RefreshCw,
-    title: "Real-time Updates",
-    desc: "Auto-refreshes every 60 seconds to keep you informed",
+    title: "Live from the Observatory",
+    desc: "Pulls straight from the HKO API every 60 seconds. As current as the government's own app.",
   },
   {
     icon: AlertTriangle,
-    title: "Severity at a Glance",
-    desc: "Warnings grouped by severity — Critical, Standard, Advisory",
+    title: "Know What Matters",
+    desc: "Warnings grouped by severity. A T10 stands out from a frost advisory.",
   },
   {
     icon: WifiOff,
-    title: "Works Offline",
-    desc: "Shows last known warnings when disconnected",
+    title: "Offline-Ready",
+    desc: "Your last snapshot stays visible even without internet. Always have the latest you knew.",
   },
   {
     icon: Bell,
-    title: "Smart Notifications",
-    desc: "Get notified when warnings are issued, extended, or escalated",
+    title: "Noise-Free Alerts",
+    desc: "Get pinged only when something changes — issued, extended, or escalated. No spam.",
   },
 ]
 
@@ -68,14 +68,14 @@ export function FeaturesGrid() {
           variants={fadeUp}
           transition={sectionTransition}
         >
-          Never Miss a Warning
+          Stay Ahead of the Storm
         </motion.h2>
         <motion.p
           className="text-sm lg:text-base text-white/50 mt-3 max-w-lg text-pretty"
           variants={fadeUp}
           transition={sectionTransition}
         >
-          Tate keeps you informed without lifting a finger
+          Tate does the watching. You just glance at your menu bar.
         </motion.p>
       </motion.div>
 

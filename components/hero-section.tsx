@@ -47,17 +47,18 @@ export function HeroSection() {
             className="font-display text-4xl sm:text-5xl lg:text-[3.25rem] font-bold tracking-tight leading-[1.1] text-pretty text-white"
             variants={fadeUp}
           >
-            Real-Time{" "}
-            <span className="text-primary">HK Weather Warnings</span>{" "}
-            In Your macOS Menu Bar
+            Know Before the Sky Turns<br />
+            <span className="text-primary">Live HK Weather Warnings</span>{" "}
+            in Your Menu Bar
           </motion.h1>
 
           <motion.p
             className="text-sm sm:text-base leading-relaxed text-pretty text-muted-foreground max-w-md"
             variants={fadeUp}
           >
-            Never miss a typhoon signal, rainstorm warning, or thunderstorm alert.
-            Tate pulls live data from the Hong Kong Observatory — free and open source.
+            Typhoon season. Monsoon rains. Sudden T8s. Tate keeps a live watch on
+            every warning from the Hong Kong Observatory — right in your menu bar.
+            Free and open source.
           </motion.p>
 
           <motion.div className="flex flex-wrap items-center gap-3 sm:gap-5" variants={fadeUp}>
@@ -80,14 +81,14 @@ export function HeroSection() {
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold bg-primary text-primary-foreground hover:brightness-110 transition-all"
             >
               <Download className="w-4 h-4" />
-              Download for macOS
+              Get Tate for macOS
             </a>
             <a
               href="https://github.com/ec812/hkwarnsum"
               className="inline-flex items-center font-mono justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold border border-white/12 bg-white/5 backdrop-blur-xl text-white/80 hover:brightness-125 transition-colors"
             >
               <GithubIcon className="w-4 h-4" />
-              Contribute
+              Contribute on GitHub
             </a>
           </motion.div>
 

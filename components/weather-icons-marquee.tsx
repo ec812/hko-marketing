@@ -92,15 +92,15 @@ export function WeatherIconsMarquee() {
             variants={fadeUp}
             transition={sectionTransition}
           >
-            Every Warning Type Covered
+            Every Warning the Observatory Issues
           </motion.h2>
           <motion.p
             className="mx-auto mt-3 max-w-lg text-sm text-balance text-white/50 lg:text-base"
             variants={fadeUp}
             transition={sectionTransition}
           >
-            Typhoon signals, rainstorm alerts, thunderstorms, and more — all from
-            the Hong Kong Observatory
+            All 21 warning types — from T1 to T10, amber rain to black,
+            frost to tsunami — live from the Hong Kong Observatory
           </motion.p>
         </motion.div>
 

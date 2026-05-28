@@ -101,15 +101,14 @@ export function OpenSourceSection() {
               variants={fadeUp}
               transition={sectionTransition}
             >
-              Proudly Open Source
+              Built for Hong Kong, Open for Everyone
             </motion.h2>
             <motion.p
               className="text-sm lg:text-base text-white/50 mt-3 max-w-md text-balance"
               variants={fadeUp}
               transition={sectionTransition}
             >
-              Built with Tauri 2, React 19, and Rust — jump in, fix a bug, add a
-              warning type
+              MIT licensed. Free forever. No ads, no tracking, no catch.
             </motion.p>
             <motion.div
               className="flex items-center gap-2 mt-5 mb-8"

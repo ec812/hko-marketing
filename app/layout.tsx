@@ -9,16 +9,16 @@ import { AnchoredToastProvider } from "@/components/ui/toast"
 import { TooltipProvider } from "@/components/ui/tooltip"
 
 export const metadata: Metadata = {
-  title: "Tate — Hong Kong Weather Warnings in Your Menu Bar",
+  title: "Tate — Hong Kong Weather Warnings for Your macOS Menu Bar",
   icons: {
     icon: "/icons/tate.svg",
   },
   description:
-    "Open Source Real-time Hong Kong weather warnings from the HKO Open Data API, right in your macOS menu bar.",
+    "Live typhoon signals, rainstorm warnings, and thunderstorm alerts from the Hong Kong Observatory — right in your menu bar. Free & open source.",
   openGraph: {
-    title: "Tate — HK Weather Warnings",
+    title: "Tate — Weather Warnings, Your Menu Bar",
     description:
-      "Open Source Real-time Hong Kong weather warnings in your macOS menu bar.",
+      "Real-time Hong Kong weather warnings from the HKO in your macOS menu bar. Free, open source, bilingual.",
     images: [
       {
         url: "/og-image.jpg",
