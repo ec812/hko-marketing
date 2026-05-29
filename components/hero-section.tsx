@@ -56,7 +56,7 @@ export function HeroSection() {
             className="text-sm sm:text-base leading-relaxed text-pretty text-muted-foreground max-w-md"
             variants={fadeUp}
           >
-            Typhoon season. Monsoon rains. Sudden T8s. Tate keeps a live watch on
+            Typhoon season. Monsoon rains. Flash rainstorms. Tate keeps a live watch on
             every warning from the Hong Kong Observatory — right in your menu bar.
             Free and open source.
           </motion.p>
